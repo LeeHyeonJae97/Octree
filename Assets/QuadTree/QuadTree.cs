@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class QuadTree<T> where T : IQuadTreeObject
+public class Quadtree<T> where T : IQuadtreeObject
 {
     public int Count { get; private set; }
 
     [SerializeField] private Vector3 _center;
     [SerializeField] private Vector2 _size;
     [SerializeField] private int _minDepth;
-    private QuadTreeNode<T> _root;
+    private QuadtreeNode<T> _root;
 #if UNITY_EDITOR
     private Bounds _collidingBounds;
     private Ray _collidingRay;
@@ -19,18 +19,18 @@ public class QuadTree<T> where T : IQuadTreeObject
     private List<T> _collidings;
 #endif
 
-    public QuadTree(Vector3 center, Vector2 size, int minDepth)
+    public Quadtree(Vector3 center, Vector2 size, int minDepth)
     {
         _center = center;
         _size = size;
         _minDepth = minDepth;
 
-        _root = new QuadTreeNode<T>(_center, _size, 0, _minDepth);
+        _root = new QuadtreeNode<T>(_center, _size, 0, _minDepth);
     }
 
     public void Reset()
     {
-        _root = new QuadTreeNode<T>(_center, _size, 0, _minDepth);
+        _root = new QuadtreeNode<T>(_center, _size, 0, _minDepth);
     }
 
     public bool Add(T obj)

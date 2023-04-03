@@ -238,10 +238,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _count: 2000
   _prefab: {fileID: -994186528569241382, guid: 3c3781cfef932b1479ea0cdc5e7f200a, type: 3}
-  _center: {x: 0, y: 0}
-  _size: {x: 30, y: 30}
-  _minDepth: 10
   _weight: 11.52
+  _settings:
+    _center: {x: 0, y: 0}
+    _size: {x: 30, y: 30}
+    _minDepth: 10
 --- !u!4 &494959844
 Transform:
   m_ObjectHideFlags: 0
@@ -579,7 +580,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de9f5b580faabfd42aa4dbd9f782d0c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _text: {fileID: 779025718}
 --- !u!224 &801100095
 RectTransform:
   m_ObjectHideFlags: 0

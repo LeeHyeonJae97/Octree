@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct QuadTreeNode<T> where T : IQuadTreeObject
+public struct QuadtreeNode<T> where T : IQuadtreeObject
 {
     private const int MAX_OBJECTS = 8;
 
@@ -12,9 +12,9 @@ public struct QuadTreeNode<T> where T : IQuadTreeObject
     private int _minDepth;
     private Bounds _bounds;
     private List<T> _objects;
-    private QuadTreeNode<T>[] _children;
+    private QuadtreeNode<T>[] _children;
 
-    public QuadTreeNode(Vector2 center, Vector2 size, int depth, int minDepth)
+    public QuadtreeNode(Vector2 center, Vector2 size, int depth, int minDepth)
     {
         _center = center;
         _size = size;
@@ -230,12 +230,12 @@ public struct QuadTreeNode<T> where T : IQuadTreeObject
         var quarter = _size / 4f;
         var half = _size / 2f;
 
-        _children = new QuadTreeNode<T>[4];
+        _children = new QuadtreeNode<T>[4];
 
-        _children[0] = new QuadTreeNode<T>(_center + new Vector2(-quarter.x, quarter.y), half, _depth + 1, _minDepth);
-        _children[1] = new QuadTreeNode<T>(_center + new Vector2(quarter.x, quarter.y), half, _depth + 1, _minDepth);
-        _children[2] = new QuadTreeNode<T>(_center + new Vector2(-quarter.x, -quarter.y), half, _depth + 1, _minDepth);
-        _children[3] = new QuadTreeNode<T>(_center + new Vector2(quarter.x, -quarter.y), half, _depth + 1, _minDepth);
+        _children[0] = new QuadtreeNode<T>(_center + new Vector2(-quarter.x, quarter.y), half, _depth + 1, _minDepth);
+        _children[1] = new QuadtreeNode<T>(_center + new Vector2(quarter.x, quarter.y), half, _depth + 1, _minDepth);
+        _children[2] = new QuadtreeNode<T>(_center + new Vector2(-quarter.x, -quarter.y), half, _depth + 1, _minDepth);
+        _children[3] = new QuadtreeNode<T>(_center + new Vector2(quarter.x, -quarter.y), half, _depth + 1, _minDepth);
 
         while (_objects.Count > 0)
         {

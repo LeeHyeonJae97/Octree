@@ -6,24 +6,22 @@ public class QuadSpawner : MonoBehaviour
 {
     [SerializeField] private int _count;
     [SerializeField] private Quad _prefab;
-    [SerializeField] private Vector2 _center;
-    [SerializeField] private Vector2 _size;
-    [SerializeField] private int _minDepth;
     [SerializeField] private float _weight;
+    [SerializeField] private QuadtreeSettings _settings;
     private Quad[] _quads;
     private List<Quad> _neighbors;
-    private QuadTree<Quad> _quadTree;
+    private Quadtree<Quad> _quadTree;
 
     private void Start()
     {
         _quads = new Quad[_count];
         _neighbors = new List<Quad>();
-        _quadTree = new QuadTree<Quad>(_center, _size, _minDepth);
+        _quadTree = new Quadtree<Quad>(_settings.Center, _settings.Size, _settings.MinDepth);
 
         for (int i = 0; i < _count; i++)
         {
-            var hs = _size / 2;
-            var position = _center + new Vector2(Random.Range(-hs.x, hs.x), Random.Range(-hs.y, hs.y));
+            var hs = _settings.Size / 2;
+            var position = _settings.Center+ new Vector2(Random.Range(-hs.x, hs.x), Random.Range(-hs.y, hs.y));
             var rotation = Quaternion.identity;
 
             _quads[i] = Instantiate(_prefab, position, rotation);

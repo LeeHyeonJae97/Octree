@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IQuadTreeObject
+public interface IQuadtreeObject
 {
     public Bounds Bounds { get; }
 }

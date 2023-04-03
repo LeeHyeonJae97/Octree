@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Quad : MonoBehaviour, IQuadTreeObject
+public class Quad : MonoBehaviour, IQuadtreeObject
 {
     public Bounds Bounds { get { return _renderer.bounds; } }
     public Vector3 Direction { get; set; }

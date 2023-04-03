@@ -6,20 +6,18 @@ public class CubeSpawner : MonoBehaviour
 {
     [SerializeField] private int _count;
     [SerializeField] private Cube _prefab;
-    [SerializeField] private Vector3 _center;
-    [SerializeField] private Vector3 _size;
-    [SerializeField] private int _minDepth;
     [SerializeField] private float _radius;
+    [SerializeField] private OctreeSettings _settings;
     private Octree<Cube> _octree;
 
     private void Start()
     {
-        _octree = new Octree<Cube>(_center, _size, _minDepth);
+        _octree = new Octree<Cube>(_settings.Center, _settings.Size, _settings.MinDepth);
 
         for (int i = 0; i < _count; i++)
         {
-            var hs = _size / 2;
-            var position = _center + new Vector3(Random.Range(-hs.x, hs.x), Random.Range(-hs.y, hs.y), Random.Range(-hs.z, hs.z));
+            var hs = _settings.Size / 2;
+            var position = _settings.Center + new Vector3(Random.Range(-hs.x, hs.x), Random.Range(-hs.y, hs.y), Random.Range(-hs.z, hs.z));
             var rotation = Quaternion.identity;
 
             var cube = Instantiate(_prefab, position, rotation);
