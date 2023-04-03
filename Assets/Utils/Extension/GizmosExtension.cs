@@ -245,7 +245,7 @@ public static class Gizmos
 		Gizmos.color = org;
 	}
 
-	public static void DrawCircle(Vector2 center, float radius, float circleDetail = 30)
+	public static void DrawWireCircle(Vector2 center, float radius, float circleDetail = 30)
 	{
 		float angle = 360 / circleDetail;
 		float rad1, rad2;
@@ -273,16 +273,16 @@ public static class Gizmos
 		DrawLine(point1, point2);
 	}
 
-	public static void DrawCircle(Vector2 center, float radius, Color color, float circleDetail = 30)
+	public static void DrawWireCircle(Vector2 center, float radius, Color color, float circleDetail = 30)
 	{
 		Color org = Gizmos.color;
 
 		Gizmos.color = color;
-		DrawCircle(center, radius, circleDetail);
+		DrawWireCircle(center, radius, circleDetail);
 		Gizmos.color = org;
 	}
 
-	public static void DrawCircleXZ(Vector3 center, float radius, float circleDetail = 30)
+	public static void DrawWireCircleXZ(Vector3 center, float radius, float circleDetail = 30)
 	{
 		float angle = 360 / circleDetail;
 		float rad1, rad2;
@@ -310,12 +310,12 @@ public static class Gizmos
 		DrawLine(point1, point2);
 	}
 
-	public static void DrawCircleXZ(Vector3 center, float radius, Color color, float circleDetail = 30)
+	public static void DrawWireCircleXZ(Vector3 center, float radius, Color color, float circleDetail = 30)
 	{
 		Color org = Gizmos.color;
 
 		Gizmos.color = color;
-		DrawCircleXZ(center, radius, circleDetail);
+		DrawWireCircleXZ(center, radius, circleDetail);
 		Gizmos.color = org;
 	}
 

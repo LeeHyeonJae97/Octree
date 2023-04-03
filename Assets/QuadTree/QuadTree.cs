@@ -138,7 +138,7 @@ public class QuadTree<T> where T : IQuadTreeObject
 
         Gizmos.DrawRay(_collidingRay, Color.green);
 
-        Gizmos.DrawCircle(_collidingCenter, _collidingRadius, Color.green);
+        Gizmos.DrawWireCircle(_collidingCenter, _collidingRadius, Color.green);
 
         if (_collidings != null)
         {
